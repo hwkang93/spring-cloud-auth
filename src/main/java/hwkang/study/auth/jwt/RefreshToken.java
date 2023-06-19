@@ -16,7 +16,7 @@ public class RefreshToken {
     private String value;
 
     public RefreshToken updateValue(String token) {
-        this.value = value;
+        //this.value = value;
         return this;
     }
 }
