@@ -6,7 +6,6 @@ spring:
     gateway:
       routes:
         - id: auth_route
-          #uri: http://geon.wavus.co.kr:14090
           uri: http://localhost:10010/portal
           predicates:
             - Path=/**
