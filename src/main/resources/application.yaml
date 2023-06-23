@@ -1,0 +1,37 @@
+server:
+  port: 2742
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth_route
+          #uri: http://geon.wavus.co.kr:14090
+          uri: http://localhost:10010/portal
+          predicates:
+            - Path=/**
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials #Response-Header ? ?? ?? ? ??
+  data:
+    redis:
+      host: localhost
+      port: 5051
+
+jwt:
+  secretKey: asdifjasdiofamseilfawjeiofasjdlkfjahwuiorfhaskjdfawjkfasdifjasdiofamseilfawjeiofasjdlkfjahwuiorfhaskjdfawjkfasdifjasdiofamseilfawjeiofasjdlkfjahwuiorfhaskjdfawjkfasdifjasdiofamseilfawjeiofasjdlkfjahwuiorfhaskjdfawjkfasdifjasdiofamseilfawjeiofasjdlkfjahwuiorfhaskjdfawjkfasdifjasdiofamseilfawjeiofasjdlkfjahwuiorfhaskjdfawjkfasdifjasdiofamseilfawjeiofasjdlkfjahwuiorfhaskjdfawjkf
+  targetApiKey: XotnWmkhmFg5BqHTB3d0YEztKxjVAdgz
+  accessTokenExpiration: 600     # minute
+  refreshTokenExpiration: 7       # date
+
+security:
+  allowOrigins: http://localhost:6061, http://localhost:6060
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+        security: DEBUG
+      geopaas:
+        geonauth:
+          jwt: TRACE
